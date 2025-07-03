@@ -17,6 +17,10 @@ def init_db():
 
 def get_all_users():
 	users = list(db.users.find())
+	# NOTE: ObjectId (id object from mongodb) is not serializable as JSON, so need to convert it to string
+	for user in users:
+		user["_id"] = str(user["_id"]) #convert all Object_id's to string so json works and doesn't get mad at me
+
 	return {
 		"users": users,
 		"message": "users retrieved successfully"
