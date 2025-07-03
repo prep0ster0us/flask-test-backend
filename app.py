@@ -28,7 +28,5 @@ def get_users():
 #     except LookupError:
 #         return jsonify({"error": "couldn't fetch users"}), 404
 
-
 if __name__ == '__main__':
-    init_db()
     app.run(host='0.0.0.0', port=10000)  # Use 0.0.0.0 for Render

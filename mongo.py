@@ -16,7 +16,7 @@ def init_db():
 	userTable = db.users
 
 def get_all_users():
-	users = list(userTable.find())
+	users = list(db.users.find())
 	return {
 		"users": users,
 		"message": "users retrieved successfully"
